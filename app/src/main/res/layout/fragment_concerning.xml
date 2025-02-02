@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Concerning">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="关于"
+        android:titleTextColor="@color/white"
+        android:background="@color/my_light_primary"/>
+    <!-- TODO: Update blank fragment layout -->
+    <ListView
+        android:id="@+id/Concerning"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

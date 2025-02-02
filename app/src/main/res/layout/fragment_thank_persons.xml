@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".thankPersons">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/thanksToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="感谢人员以及说明"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+    <!-- 使用说明标题 -->
+    <TextView
+        android:id="@+id/usageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用说明"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <!-- 软件说明 -->
+    <TextView
+        android:id="@+id/softwareDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="该软件仅是给各位同学们一个参考式的查分给大家一个方向\n祝各位同学都考上理想的高中"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 感谢人员标题 -->
+    <TextView
+        android:id="@+id/thankPeopleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="感谢人员"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 感谢人员介绍 -->
+    <TextView
+        android:id="@+id/thankPeopleDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="感谢以下人员对本软件的贡献...\n感谢刘新明收集高中资料\n感谢赖天意同学开发此软件"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
