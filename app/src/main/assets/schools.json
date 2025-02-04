@@ -1,0 +1,19 @@
+{
+  "School": [
+    {
+      "name": "学校A",
+      "min_score": 550,
+      "min_order": 10
+    },
+    {
+      "name": "学校B",
+      "min_score": 600,
+      "min_order": 5
+    },
+    {
+      "name": "学校C",
+      "min_score": 520,
+      "min_order": 20
+    }
+  ]
+}

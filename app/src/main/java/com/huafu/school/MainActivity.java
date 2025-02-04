@@ -87,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.hide(homeFragment);
         }
         if (concerningFragment != null) {
+            if(Concerning.thankPersons != null) {
+                fragmentTransaction.hide(Concerning.thankPersons);
+            }
             fragmentTransaction.hide(concerningFragment);
         }
     }
