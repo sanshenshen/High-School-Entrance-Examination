@@ -19,6 +19,11 @@
       "name": "学校D",
       "min_score": 540,
       "min_order": 1113
+    },
+    {
+      "name": "贵阳一中",
+      "min_score": 698,
+      "min_order": 540
     }
   ]
 }

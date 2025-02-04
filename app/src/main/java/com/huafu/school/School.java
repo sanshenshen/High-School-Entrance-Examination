@@ -3,20 +3,34 @@ package com.huafu.school;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.animation.AlphaAnimation;
+import android.widget.ListView;
+
+import com.huafu.JsonInformation.SchoolAdapter;
+import com.huafu.JsonInformation.SchoolInformation;
+import com.huafu.JsonInformation.SchoolParser;
+
+import java.util.List;
 
 public class School extends Fragment {
 
     private String fraction;
+    private ListView listView;
+    private SchoolAdapter adapter;
+    private List<SchoolInformation> schoolList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +59,7 @@ public class School extends Fragment {
         if (bundle != null) {
             fraction = bundle.getString("key");
         }
-
+        Log.d("sorce", fraction);
         // 设置返回键图标颜色为白色
         Drawable drawable = toolbar.getNavigationIcon();
         if (drawable != null) {
@@ -54,7 +68,39 @@ public class School extends Fragment {
         }
         // 设置标题颜色为白色
         toolbar.setTitleTextColor(Color.WHITE);
+        listView = view.findViewById(R.id.listView);
+        schoolList = SchoolParser.parseSchoolJson(getContext());
+        adapter = new SchoolAdapter(getContext(), schoolList , 0);
+        listView.setAdapter(adapter);
+        if (fraction != null && !fraction.isEmpty()) {
+            try {
+                int score = Integer.parseInt(fraction);  // 将分数从 String 转为 int
+                adapter.filter(score);  // 过滤学校数据
+            } catch (NumberFormatException e) {
+                Log.e("score", "Invalid score format: " + fraction);
+            }
+        }
+        listView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                // 当视图布局完成后，移除监听器并执行动画
+                listView.getViewTreeObserver().removeOnPreDrawListener(this);  // 防止多次执行
+                setListViewAnimation();  // 开始动画
+                return true;
+            }
+        });
         return view;
+    }
+    private void setListViewAnimation() {
+        // 获取 ListView 中的每一项，并给它们设置动画
+        for (int i = 0; i < listView.getChildCount(); i++) {
+            final View child = listView.getChildAt(i);
+            // 设置透明度动画
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1f);
+            alphaAnimation.setDuration(1000);  // 动画时长 1 秒
+            alphaAnimation.setStartOffset(i * 100);  // 每一项的动画延迟 100ms，逐渐展开
+            child.startAnimation(alphaAnimation);  // 启动动画
+        }
     }
 
     @Override

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- 学校名称 -->
+    <TextView
+        android:id="@+id/school_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="School Name"
+        android:textSize="16sp" />
+
+    <!-- 最低次序 -->
+    <TextView
+        android:id="@+id/school_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"/>
+
+    <!-- 最低分数 -->
+    <TextView
+        android:id="@+id/school_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rank"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"/>
+
+</LinearLayout>

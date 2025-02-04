@@ -17,7 +17,7 @@ public class Concerning extends Fragment {
 
     public static thankPersons thankPersons;
 
-    private String[] items = {"感谢人员以及说明", "学校官网", "软件版本：1.0.2"};
+    private String[] items = {"感谢人员以及说明", "学校官网", "软件版本：1.5.0"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

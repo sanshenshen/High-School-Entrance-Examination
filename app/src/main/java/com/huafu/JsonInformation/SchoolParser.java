@@ -4,13 +4,12 @@ import android.content.Context;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.huafu.school.School;
 import java.io.InputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 public class SchoolParser {
-    public static void parseSchoolJson(Context context) {
+    public static List<SchoolInformation> parseSchoolJson(Context context) {
         try {
             // 读取 assets 文件夹中的 JSON 文件
             InputStream is = context.getAssets().open("schools.json");
@@ -25,13 +24,12 @@ public class SchoolParser {
             // 解析 JSON 字符串
             JSONObject jsonObject = JSON.parseObject(jsonString);
             JSONArray schoolArray = jsonObject.getJSONArray("School");
-
-            // 将解析的数组转为 List
-            List<School> schools = schoolArray.toJavaList(School.class);
-
+            List<SchoolInformation> schools = schoolArray.toJavaList(SchoolInformation.class);
+            return schools;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return java.util.Collections.emptyList();
     }
 }
 
