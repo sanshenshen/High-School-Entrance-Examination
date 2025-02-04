@@ -14,6 +14,11 @@
       "name": "学校C",
       "min_score": 520,
       "min_order": 20
+    },
+    {
+      "name": "学校D",
+      "min_score": 540,
+      "min_order": 1113
     }
   ]
 }
