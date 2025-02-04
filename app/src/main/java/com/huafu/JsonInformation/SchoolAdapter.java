@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.huafu.school.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SchoolAdapter extends ArrayAdapter<SchoolInformation> {
@@ -37,6 +39,15 @@ public class SchoolAdapter extends ArrayAdapter<SchoolInformation> {
                 filteredList.add(school);  // 仅添加最低分数小于等于输入分数的项
             }
         }
+
+        // 按照分数从高到低排序
+        Collections.sort(filteredList, new Comparator<SchoolInformation>() {
+            @Override
+            public int compare(SchoolInformation school1, SchoolInformation school2) {
+                return Integer.compare(school2.getMinScore(), school1.getMinScore());  // 反转顺序实现从高到低
+            }
+        });
+
         notifyDataSetChanged();  // 更新 ListView
     }
 

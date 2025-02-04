@@ -36,7 +36,7 @@ public class Home extends Fragment {
                 if (inputNumber >= 584 && inputNumber <= 750) {
                     GoToSchool(inputText , view);
                 } else {
-                    Toast.makeText(getContext(), "请这位同学的分数在高点或是在低点", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "这位同学的分数不合法哦", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 // 输入的内容不是数字或者浮动数
