@@ -20,9 +20,9 @@ public class SchoolAdapter extends ArrayAdapter<SchoolInformation> {
     private Context context;
     private List<SchoolInformation> schoolList;
     private List<SchoolInformation> filteredList;  // 用于存储过滤后的数据
-    private int Score;
+    private double Score;
 
-    public SchoolAdapter(Context context, List<SchoolInformation> schoolList , int score) {
+    public SchoolAdapter(Context context, List<SchoolInformation> schoolList , double score) {
         super(context, 0, schoolList);
         this.context = context;
         this.Score = score;
@@ -31,7 +31,7 @@ public class SchoolAdapter extends ArrayAdapter<SchoolInformation> {
     }
 
     // 过滤方法
-    public void filter(int score) {
+    public void filter(double score) {
         this.Score = score;
         filteredList.clear();  // 清空过滤后的列表
         for (SchoolInformation school : schoolList) {

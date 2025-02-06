@@ -74,7 +74,7 @@ public class School extends Fragment {
         listView.setAdapter(adapter);
         if (fraction != null && !fraction.isEmpty()) {
             try {
-                int score = Integer.parseInt(fraction);  // 将分数从 String 转为 int
+                double score = Double.parseDouble(fraction);  // 将分数从 String 转为 int
                 adapter.filter(score);  // 过滤学校数据
             } catch (NumberFormatException e) {
                 Log.e("score", "Invalid score format: " + fraction);
